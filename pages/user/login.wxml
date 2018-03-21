@@ -1,0 +1,23 @@
+<!--pages/user/login.wxml-->
+<text>pages/user/login.wxml</text>
+<view class="loginPage">
+  <view class="contentArea">
+    <form bindsubmit='formSubmit' bindreset='formReset'>
+      <view class="login_word">Begonia</view>
+      <view class="formContainer">
+        <div class="inputContainer">
+          <input name="userName" class="fieldInput" placeholder='用户名'></input>
+        </div>
+        <div class="inputContainer">
+          <input name="password" class="fieldInput" placeholder='密码'></input>
+        </div>
+        <view class="buttonArea">
+          <view formType="submit" class="loginBtn">登陆</view>
+          <view bindtap='re_Register' class="loginBtn">注册</view>
+        </view>
+      </view>
+    </form>
+  </view>
+  <view class="foot">
+  </view>
+</view>

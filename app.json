@@ -1,0 +1,19 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/index/home",
+    "pages/index/diary",
+    "pages/index/add",
+    "pages/index/manager",
+    "pages/user/index",
+    "pages/user/login",
+    "pages/user/register"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#9999ff",
+    "navigationBarTitleText": "Begonia图书管理系统",
+    "navigationBarTextStyle":"black"
+  }
+}
