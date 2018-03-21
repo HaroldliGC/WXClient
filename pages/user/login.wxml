@@ -12,8 +12,8 @@
           <input name="password" class="fieldInput" placeholder='密码'></input>
         </div>
         <view class="buttonArea">
-          <view formType="submit" class="loginBtn">登陆</view>
-          <view bindtap='re_Register' class="loginBtn">注册</view>
+          <button form-type='submit' class="loginBtn">登陆</button>
+          <button bindtap='re_Register' class="loginBtn">注册</button>
         </view>
       </view>
     </form>

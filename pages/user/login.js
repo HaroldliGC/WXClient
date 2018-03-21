@@ -1,5 +1,36 @@
 // pages/user/login.js
 Page({
+  //注册
+  re_Register: function(e) {
+    wx.navigateTo({
+      url: './register',
+    })
+  },
+  //登陆
+  formSubmit: function(e) {
+    var userAccount = e.detail.value.userName;
+    var userPassword = e.detail.value.password;
+    wx.request({
+      url: "http://localhost:26800/api/ReaderUsers/getreaderuserlogin/",
+      data: {
+        'token': getApp().globalData.userInfo.dev_token,
+        'userAccount': userAccount,
+        'userPassword': userPassword,
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function(res) {
+        console.log(res.data)
+
+      }
+    })
+  },
+
+
+
+
 
   /**
    * 页面的初始数据

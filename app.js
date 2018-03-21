@@ -34,6 +34,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: {
+      dev_token: "wx8dd7bc7d94138ae3"
+    }
   }
 })
