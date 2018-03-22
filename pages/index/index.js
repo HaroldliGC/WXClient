@@ -10,6 +10,6 @@ Page({
       wx.redirectTo({
         url: '../user/login',
       })
-    },1000)
+    })
   }
 })

@@ -1,25 +1,40 @@
 // pages/index/home.js
+var resData = [];
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    books: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.request({
+      url: 'http://localhost:26800/api/books/getbooks',
+      success: function (res) {
+        console.log("res：", res);
+        if (res.statusCode == 200){
+          resData = res.data;
+          console.log("resData:",resData);
+        }
+        else{
+          console.log("请求失败：",res);
+        }
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.setData({
+      books: resData,
+    })
   },
 
   /**

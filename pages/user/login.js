@@ -8,29 +8,35 @@ Page({
   },
   //登陆
   formSubmit: function(e) {
-    var userAccount = e.detail.value.userName;
-    var userPassword = e.detail.value.password;
     wx.request({
-      url: "http://localhost:26800/api/ReaderUsers/getreaderuserlogin/",
+      url: 'http://localhost:26800/api/ReaderUsers/GetReaderUserLogin/',
       data: {
-        'token': getApp().globalData.userInfo.dev_token,
-        'userAccount': userAccount,
-        'userPassword': userPassword,
+        'userAccount': e.detail.value.username,
+        'userPassword': e.detail.value.password,
       },
-      method: 'POST',
+      method: 'GET',
       header: {
-        'content-type': 'application/x-www-form-urlencoded'
+        'content-type': 'application/x-www-form-urlencoded',
       },
       success: function(res) {
-        console.log(res.data)
-
+        if (res.statusCode === 200) {
+          console.log(res)
+          if (res.data === 'success'){
+            wx.redirectTo({
+              url: '../index/home',
+            })
+          }
+          else {
+            wx.showToast({
+              title: res.data,
+              icon: 'loading',
+              duration: 2000,
+            })
+          }
+        }
       }
     })
   },
-
-
-
-
 
   /**
    * 页面的初始数据
