@@ -1,4 +1,5 @@
 // pages/index/diary.js
+var resData = [];
 Page({
 
   /**
@@ -12,7 +13,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(options)
+    var that = this;
+    wx.request({
+      url: 'http://localhost:26800/api/books/getbook/'+options.id,
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      success: function (res) {
+        console.log("res：", res);
+        if (res.statusCode == 200) {
+          resData = res.data;
+          console.log("resData:", resData);
+          that.setData({ books: resData });
+        }
+        else {
+          console.log("请求失败：", res);
+        }
+      }
+    })
   },
 
   /**

@@ -1,25 +1,73 @@
 // pages/index/home.js
 var resData = [];
+
+function setData(data) {
+  var that = this;
+  that.setData({
+    books: data,
+  })
+}
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    books: []
+    books: [],
+    bookImage: '../images/book.png',
+  },
+
+  //检索书籍
+  search: function(e) {
+    var that = this;
+    console.log(e.detail.value.bookname)
+    wx.request({
+      url: 'http://localhost:26800/api/Books/getbookbysearch/',
+      data: {
+        'Name' : e.detail.value.bookname,
+        'Isbn' : '',
+        'Type' : '',
+        'Press' : '',
+        'Author' : '',
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      success: function(res){
+        console.log("res:",res)
+        if (res.statusCode === 200){
+          console.log("API调研成功")
+          resData=res.data;
+          that.setData({books:resData});
+        }
+        else {
+          console.log("API调用失败")
+        }
+      }
+    })
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     wx.request({
       url: 'http://localhost:26800/api/books/getbooks',
+      method: 'GET',
+      header: {
+        'Accept':'application/json',
+        'Content-Type':'application/json',
+      }, 
       success: function (res) {
         console.log("res：", res);
         if (res.statusCode == 200){
           resData = res.data;
           console.log("resData:",resData);
+          that.setData({books:resData});
         }
         else{
           console.log("请求失败：",res);
@@ -41,7 +89,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
   },
 
   /**

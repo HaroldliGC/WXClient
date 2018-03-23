@@ -1,2 +1,41 @@
 <!--pages/index/home.wxml-->
-<text>pages/index/home.wxml</text>
+<view class="homePage">
+  <view class="headerBar">
+    <view class="navBar">
+      <view class="navItem" hover-class='navItem-hover'>书城</view>
+      <view class="navItem" hover-class='navItem-hover'>书架</view>
+    </view>
+  </view>
+  <view class="topArea">
+    <form class="searchArea" bindsubmit="search">
+      <view class="search">
+        <input 
+          class="searchInputMain"
+          type="text" 
+          placeholder='书名'
+          name='bookname'
+        ></input>
+        <view>
+            <button
+              form-type='submit' 
+              class="searchButton"
+            >检索</button>
+        </view>
+      </view>
+    </form>
+    <view class="bookPanel">
+      <view class="list" wx:for="{{books}}" wx:key="id">
+        <navigator url="diary?id={{item.Id}}" hover-class="navigator-hover" class="linkItem">
+          <view class="icon">
+            <image src="{{bookImage}}" class="image"></image>
+          </view>
+          <view class="bookItem">
+            {{item.Name}}
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class="bottomArea">
+  </view>
+</view>
