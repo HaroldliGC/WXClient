@@ -2,7 +2,7 @@
 <view class="homePage">
   <view class="headerBar">
     <view class="navBar">
-      <navigator url='home' class="navItem" hover-class='navItem-hover'>书城</navigator>
+      <navigator class="navItem" hover-class='navItem-hover'>书城</navigator>
       <navigator url='manager' class="navItem" hover-class='navItem-hover'>书架</navigator>
     </view>
   </view>

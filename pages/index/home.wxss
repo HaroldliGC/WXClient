@@ -36,7 +36,6 @@ page {
   flex-shrink: 1;
 }
 
-
 .navItem-hover {
   background: rgb(90,196,235);
 }
@@ -121,6 +120,7 @@ page {
 
 .linkItem {
   display: flex;
-  width:100%;
+  width:90%;
   height:30px;
+  margin: 0 5%
 }

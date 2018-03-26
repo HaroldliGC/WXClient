@@ -1,6 +1,28 @@
+page {
+  width:100%;
+  height:100%;
+}
+
 .operatePage {
   width: 100%;
   height: 100%;
+}
+
+.Table {
+  width: 100%;
+  height: 100%;
+}
+
+.Thead {
+  text-align: center;
+  width:100%;
+  border: 1px solid #CDCDCD;
+}
+
+.Tbody {
+  width:100%;
+
+
 }
 
 .orderArea {
@@ -10,8 +32,20 @@
 
 .tableRow {
   height: 1.786rem;
+  border: 1px solid #CDCDCD;
+  border-top: 0;
+  display: flex;
 }
 
 .tableKey {
   background-color: #e3eff7;
+  width:35%;
+  padding: 0 3px;
+}
+
+.tableValue {
+  text-align: left;
+  padding: 0 3px;
+  overflow: hidden;
+  
 }
