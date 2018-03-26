@@ -1,2 +1,28 @@
 <!--pages/index/add.wxml-->
-<text>pages/index/add.wxml</text>
+<view class="addPage">
+  <view class="Panel">
+    <form bindsubmit='formSubmit'>
+      <view class="PanelHeader">
+        <input name="bookName"  placeholder='{{book.bookName}}' read></input>
+      </view>
+      <view class="PanelBody">
+        <picker name="startDate" mode="date" value='{{startDate}}' start="2018-03-01" end="2020-01-01" bindchange='bindStartDate' class="inputItem">
+        <view class="picker">
+          开始日期：{{startDate}}
+        </view>
+        </picker>
+        <picker name="endDate" mode="date" value='{{endtDate}}' start="2018-03-01" end="2020-01-01" bindchange='bindEndDate' class="inputItem">
+        <view class="picker">
+          结束日期：{{endDate}}
+        </view>
+        </picker>
+        <view class="inputItem">
+          借阅号：{{userAccount}}
+        </view>
+      </view>
+      <view class="PanelFoot">
+        <button form-type='submit' class='myButton'>确认</button>
+      </view>
+    </form>
+  </view>
+</view>

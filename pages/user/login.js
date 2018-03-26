@@ -21,14 +21,35 @@ Page({
       success: function(res) {
         if (res.statusCode === 200) {
           console.log(res)
-          if (res.data === 'success'){
-            wx.redirectTo({
-              url: '../index/home',
-            })
+          if (res.data.length !== 0) {
+            if (res.data[0].State !== 'stop'){
+              wx.setStorage({
+                key: 'userAccount',
+                data: res.data[0].AccountNumber,
+              })
+              wx.setStorage({
+                key: 'userPassword',
+                data: res.data[0].Password,
+              })
+              wx.setStorage({
+                key: 'userId',
+                data: res.data[0].Id,
+              })
+              wx.redirectTo({
+                url: '../index/home',
+              })
+            }
+            else{
+              wx.showToast({
+                title: '该账户已经被停用，请联系管理员恢复',
+                icon: 'loading',
+                duration: 2000,
+              })
+            }
           }
           else {
             wx.showToast({
-              title: res.data,
+              title: '用户名密码错误',
               icon: 'loading',
               duration: 2000,
             })

@@ -1,0 +1,33 @@
+<view class="operatePage">
+  <view class="orderArea">
+    <table>
+      <thead>订单详情</thead>
+      <tbody>
+        <tr class="tableRow">
+          <td class="tableKey">订单号</td>
+          <td>{{order.Id}}</td>
+        </tr>
+        <tr class="tableRow">
+          <td class="tableKey">书名</td>
+          <td>{{order.Book.Name}}</td>
+        </tr>
+        <tr class="tableRow">
+          <td class="tableKey">国际标准书号</td>
+          <td>{{order.Book.Isbn}}</td>
+        </tr>
+        <tr class="tableRow">
+          <td class="tableKey">借阅时间</td>
+          <td>{{order.StartDate}}</td>
+        </tr>
+        <tr class="tableRow">
+          <td class="tableKey">归还时间</td>
+          <td>{{order.EndDate}}</td>
+        </tr>
+        <tr class="tableRow">
+          <td class="tableKey">订单状态</td>
+          <td>{{order.OrderState}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </view>
+</view>

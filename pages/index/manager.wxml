@@ -1,2 +1,19 @@
 <!--pages/index/manager.wxml-->
-<text>pages/index/manager.wxml</text>
+<view class="managerPage">
+  <view class="item" wx:for="{{Orders}}" wx:key="id">
+    <navigator url="operate?bookId={{item.Book.Id}}&orderId={{item.Id}}" class="Navitem">
+      <image src="{{bookImage}}" class="Image" mode='aspectFit'></image>
+      <view class="bookInf">
+        <view class="infItem">
+          书名:{{item.Book.Name}}
+        </view>
+        <view class="infItem">
+          业务状态:{{item.BusinessState}}
+        </view>
+        <view class="infItem">
+          订单状态:{{item.OrderState}}
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>

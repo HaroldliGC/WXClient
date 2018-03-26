@@ -1,2 +1,28 @@
 <!--pages/index/diary.wxml-->
-<text>pages/index/diary.wxml</text>
+<view class="bookPage">
+  <view class="topArea">
+    <view class="bookTopArea">
+      <view class="bookImage">
+        <image class="Image" src="{{bookImage}}" mode='aspectFit'></image>
+      </view>
+      <view class="bookManyInf">
+        <view class="bookInfItem bookName">{{book.Name}}</view>
+        <view class="bookInfItem">{{book.Author}}</view>
+        <view class="bookInfItem">{{book.Type}}</view>
+        <view class="bookInfItem">借出数量：{{book.BorrowNumber}}本</view>
+        <view class="bookInfItem">剩余数量：{{book.ResidueNumber}}本</view>
+      </view>
+    </view>
+    <view class="bookBottomArea">
+      <view class="bookInf">{{book.Info}}</view>
+      <view class="bookDetailedInf">
+        <view class="bookDetailedInfItem">售价：{{book.Price}}¥</view>
+        <view class="bookDetailedInfItem">出版社：{{book.Press}}</view>
+        <view class="bookDetailedInfItem">国际标准书号：{{book.Isbn}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="bottomArea">
+  <navigator url='add?bookId={{book.Id}}&bookName={{book.Name}}' class="myButton">借阅</navigator>
+  </view>
+</view>

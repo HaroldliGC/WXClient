@@ -1,1 +1,108 @@
 /* pages/index/diary.wxss */
+page {
+  height: 100%;
+}
+
+.bookPage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.topArea {
+  width: 90%;
+  margin: 0 5%;
+  margin-top: 10px;
+  height: 80%;
+}
+
+.bookArea {
+  width: 100%;
+  height: 100%;
+}
+
+.bookTopArea {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  min-height: 120px;
+}
+
+.bookImage {
+  width:40%;
+}
+
+.bookManyInf {
+  width:60%;
+  height: 100%;
+  padding-left: 3%;
+}
+
+.bookInfItem {
+  width: 100%;
+  height: 15%;
+  min-height: 15px;
+  margin-bottom: 3%;
+  font-size: 0.6em;
+}
+
+.bookName {
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-top: 10%;
+}
+
+.bookBottomArea {
+  width: 100%;
+  height: 60%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bookInf {
+  width: 100%;
+  height: 60%;
+  font-size: 0.8em;
+}
+
+.bookDetailedInf {
+  width:100%;
+  height: 40%;
+}
+
+bookDetailedInfItem {
+  width: 100%;
+  height: 20%;
+  margin-top: 5%;
+  font-size: 0.7em;
+}
+
+.bottomArea {
+  width: 100%;
+  height: 20%;
+}
+
+.myButton {
+  background: rgb(93,194,214);
+  border-radius: 25px;
+  outline-style: none;
+  border: 0;
+  font-size: 18px;
+  height: 50px;
+  width: 90%;
+  margin: 20px 5%;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+}
+
+.Image {
+  width:90%;
+  height: 90%;
+  margin: 5%;
+}
+

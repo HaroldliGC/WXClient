@@ -1,0 +1,17 @@
+.operatePage {
+  width: 100%;
+  height: 100%;
+}
+
+.orderArea {
+  width: 90%;
+  margin: 5%;
+}
+
+.tableRow {
+  height: 1.786rem;
+}
+
+.tableKey {
+  background-color: #e3eff7;
+}

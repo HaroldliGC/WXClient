@@ -6,6 +6,7 @@
     "pages/index/diary",
     "pages/index/add",
     "pages/index/manager",
+    "pages/index/operate",
     "pages/user/index",
     "pages/user/login",
     "pages/user/register"

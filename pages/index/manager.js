@@ -5,21 +5,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    Orders:[],
+    bookImage: '../images/bookPic.jpg',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    wx.request({
+      url: 'http://localhost:26800/api/BusinessOrders/GetGetBusinessOrderByAccount/',
+      data: {
+        'Account': wx.getStorageSync('userAccount'),
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Accept' : 'application/json',
+      },
+      success: function(res) {
+        console.log("res:",res)
+        if (res.statusCode === 200){
+          that.setData({Orders:res.data});
+        }
+
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    console.log("data:",this.data)
   },
 
   /**
