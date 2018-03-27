@@ -8,6 +8,7 @@ Page({
   data: {
     book: {},
     bookImage: '../images/bookPic.jpg',
+    BackgroundImg: '../images/background1.png',
   },
 
   /**

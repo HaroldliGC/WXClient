@@ -16,18 +16,42 @@
           <td class="tableValue">{{order.Book.Isbn}}</td>
         </tr>
         <tr class="tableRow">
+          <td class="tableKey">作者</td>
+          <td class="tableValue">{{order.Book.Author}}</td>
+        </tr>
+        <tr class="tableRow">
+          <td class="tableKey">出版社</td>
+          <td class="tableValue">{{order.Book.Press}}</td>
+        </tr>
+        <tr class="tableRow">
+          <td class="tableKey">借阅人</td>
+          <td class="tableValue">{{order.ReaderUser.Name}}</td>
+        </tr>
+        <tr class="tableRow">
           <td class="tableKey">借阅时间</td>
           <td class="tableValue">{{order.StartDate}}</td>
         </tr>
         <tr class="tableRow">
-          <td class="tableKey">归还时间</td>
+          <td class="tableKey">预计归还时间</td>
           <td class="tableValue">{{order.EndDate}}</td>
         </tr>
         <tr class="tableRow">
           <td class="tableKey">订单状态</td>
           <td class="tableValue">{{order.OrderState}}</td>
         </tr>
+        <tr class="tableRow">
+          <td class="tableKey">续借日期</td>
+          <picker name="date" mode="date" value='{{date}}' start="2018-03-01" end="2020-01-01" bindchange='bindDate' class="inputItem" class="tableValue" disabled='{{buttonState}}'>
+          <view class="picker">
+            {{date}}
+          </view>
+          </picker>
+        </tr>
       </tbody>
+      <view class="Tfoot">
+        <button class="Button" disabled='{{buttonState}}' bindtap='reBorrow'>续借</button>
+        <button class="Button" disabled='{{buttonState}}' bindtap='returnBook'>归还</button>
+      </view>
     </view>
   </view>
 </view>

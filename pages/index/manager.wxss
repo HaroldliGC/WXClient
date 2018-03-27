@@ -11,7 +11,8 @@ page {
 
 .item {
   width:27%;
-  margin: 0 3%;
+  margin: 1rem 3%;
+  max-height:120px;
 }
 
 .Navitem {
@@ -56,6 +57,7 @@ page {
   font-weight: bold;
   text-align: center;
   flex-shrink: 1;
+  background-color: #0a80be;
 }
 
 .navItem-hover {

@@ -1,12 +1,11 @@
-// pages/index/manager.js
+// pages/index/history.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    Orders:[],
-    bookImage: '../images/bookPic.jpg',
+    Orders: [],
   },
 
   /**
@@ -18,17 +17,17 @@ Page({
       url: 'http://localhost:26800/api/BusinessOrders/GetGetBusinessOrderByAccount/',
       data: {
         'Account': wx.getStorageSync('userAccount'),
-        'OrderState': 'unfinished',
+        'OrderState': 'finished',
       },
       method: 'GET',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'Accept' : 'application/json',
+        'Accept': 'application/json',
       },
-      success: function(res) {
-        console.log("res:",res)
-        if (res.statusCode === 200){
-          that.setData({Orders:res.data});
+      success: function (res) {
+        console.log("res:", res)
+        if (res.statusCode === 200) {
+          that.setData({ Orders: res.data });
         }
 
       }
@@ -39,7 +38,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log("data:",this.data)
+  
   },
 
   /**

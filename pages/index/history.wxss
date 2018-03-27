@@ -1,11 +1,40 @@
+/* pages/index/history.wxss */
 page {
-  width:100%;
-  height:100%;
-}
-
-.operatePage {
   width: 100%;
   height: 100%;
+}
+
+.historyPage {
+  width: 100%;
+  height: 100%;
+}
+
+.headerBar {
+  width: 100%;
+  height: 53px;
+}
+
+.navBar {
+  background-color: #0a80be;
+  width: 100%;
+  height: 50px;
+  display: flex;
+}
+
+.navItem {
+  height: 100%;
+  width: 100%;
+  color: white;
+  line-height: 47px;
+  margin-left: 10px;
+  font-weight: bold;
+  text-align: center;
+  flex-shrink: 1;
+   background-color: #0a80be;
+}
+
+.navItem-hover {
+  background: rgb(90,196,235);
 }
 
 .Table {
@@ -55,25 +84,4 @@ page {
   padding: 0 3px;
   overflow: hidden;
   line-height: 2em;
-}
-
-.Tfoot {
-  text-align: center;
-  width:100%;
-  margin: 5px 0;
-  display: flex;
-}
-
-.Button {
-  border-radius: 25px;
-  outline-style: none;
-  border: 0;
-  font-size: 18px;
-  height: 30px;
-  width: 40%;
-  margin: 8px 5%;
-  color: white;
-  text-align: center;
-  line-height: 30px;
-  background-color: #00a2de;
 }

@@ -7,13 +7,14 @@
     "pages/index/add",
     "pages/index/manager",
     "pages/index/operate",
+    "pages/index/history",
     "pages/user/index",
     "pages/user/login",
     "pages/user/register"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#9999ff",
+    "navigationBarBackgroundColor": "#5FBCDE",
     "navigationBarTitleText": "Begonia图书管理系统",
     "navigationBarTextStyle":"black"
   }

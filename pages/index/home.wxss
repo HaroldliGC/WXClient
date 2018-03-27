@@ -1,6 +1,12 @@
 /* pages/index/home.wxss */
 page {
   height: 100%;
+  widows: 100%;
+}
+
+.homePage {
+  width: 100%;
+  height: 100%;
 }
 
 .topArea {
@@ -34,6 +40,7 @@ page {
   font-weight: bold;
   text-align: center;
   flex-shrink: 1;
+   background-color: #0a80be;
 }
 
 .navItem-hover {
@@ -61,6 +68,7 @@ page {
     border:1px solid #CCC;
     border-radius: 4px;
     text-decoration: none;
+    background-color: white;
 }
 
 .searchButton{
@@ -79,13 +87,11 @@ page {
 .bookPanel {
   box-sizing: border-box;
   padding: 0.5rem;
-  /*height: 200px;*/
   overflow-y: auto;
-  background-color: #fff;
   border: 1px solid #eee;
   border-radius: 4px;
   margin: 10px 10px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .panelHeader {
@@ -102,7 +108,7 @@ page {
   height:100%;
   width: 100%;
   color: black;
-  font-size: 0.8em;
+  font-size: 0.9em;
   text-align: left;
 }
 

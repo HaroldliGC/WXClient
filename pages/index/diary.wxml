@@ -1,5 +1,5 @@
 <!--pages/index/diary.wxml-->
-<view class="bookPage">
+<view class="bookPage" style="background-image: url({{BackgroundImg}})">
   <view class="topArea">
     <view class="bookTopArea">
       <view class="bookImage">

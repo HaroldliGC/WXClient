@@ -1,9 +1,10 @@
 <!--pages/index/home.wxml-->
-<view class="homePage">
+<view class="homePage" style="background-image: url({{BackgroundImg}})">
   <view class="headerBar">
     <view class="navBar">
-      <navigator class="navItem" hover-class='navItem-hover'>书城</navigator>
-      <navigator url='manager' class="navItem" hover-class='navItem-hover'>书架</navigator>
+      <view class="navItem" hover-class='navItem-hover'>书城</view>
+      <navigator url='manager' class="navItem" hover-class='navItem-hover'>在阅</navigator>
+      <navigator url='history' class="navItem" hover-class='navItem-hover'>历史</navigator>
     </view>
   </view>
   <view class="topArea">
@@ -35,7 +36,5 @@
         </navigator>
       </view>
     </view>
-  </view>
-  <view class="bottomArea">
   </view>
 </view>

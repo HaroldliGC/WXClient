@@ -5,6 +5,87 @@ Page({
    */
   data: {
     order: {},
+    buttonState: false,
+    date: new Date(),
+  },
+
+  bindDate: function (e) {
+    var that = this;
+    that.setData({
+      date: e.detail.value,
+    })
+  },
+
+  //还书函数
+  returnBook: function (e) {
+    var that = this;
+    var nowDate = new Date();
+    wx.request({
+      url: 'http://localhost:26800/api/BusinessOrders/PutBusinessOrder/'+that.data.order.Id,
+      data: {
+        'Id': that.data.order.Id,
+        'BookId': that.data.order.BookId,
+        'ReaderUserId': that.data.order.ReaderUserId,
+        'StartDate': that.data.order.StartDate,
+        'EndDate': that.data.order.EndDate,
+        'ReturnDate': nowDate,
+        'BusinessState': that.data.order.BusinessState,
+        'OrderState': 'finished'
+      },
+      method: "PUT",
+      header: {
+        'Content-Type': 'application/json',
+      },
+      success: function(res) {
+        console.log("还书结果：",res);
+        if (res.statusCode === 204) {
+          console.log("还书成功");
+          wx.redirectTo({
+            url: './manager',
+          }),
+          wx.showToast({
+            title: '图书归还成功',
+            icon: 'success',
+            duration: 2000
+          })
+        }
+      }
+    })
+  },
+  //续借函数
+  reBorrow: function(e) {
+    var that = this;
+    wx.request({
+      url: 'http://localhost:26800/api/BusinessOrders/PutBusinessOrder/' + that.data.order.Id,
+      data: {
+        'Id': that.data.order.Id,
+        'BookId': that.data.order.BookId,
+        'ReaderUserId': that.data.order.ReaderUserId,
+        'StartDate': that.data.order.StartDate,
+        'EndDate': that.data.order.EndDate,
+        'ReturnDate': that.data.date,
+        'BusinessState': that.data.order.BusinessState,
+        'OrderState': that.data.order.OrderState,
+      },
+      method: "PUT",
+      header: {
+        'Content-Type': 'application/json',
+      },
+      success: function (res) {
+        console.log("续借结果：", res);
+        if (res.statusCode === 204) {
+          console.log("续借成功");
+          wx.redirectTo({
+            url: './manager',
+          }),
+          wx.showToast({
+            title: '图书续借成功',
+            icon: 'success',
+            duration: 2000
+          })
+        }
+      }
+    })
   },
 
   /**
@@ -23,6 +104,7 @@ Page({
         console.log("order:",res)
         if (res.statusCode === 200) {
           that.setData({order:res.data[0]});
+          that.setData({buttonState:(res.data[0].OrderState === 'finished')});
           console.log("API调用成功")
         }
         else {

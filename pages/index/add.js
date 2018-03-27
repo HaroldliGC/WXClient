@@ -7,8 +7,8 @@ Page({
   data: {
     order: {},
     book: {},
-    startDate: {},
-    endDate: {},
+    startDate: new Date().toDateString,
+    endDate: new Date().toDateString,
     userAccount: '',
   },
 

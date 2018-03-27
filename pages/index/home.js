@@ -16,6 +16,7 @@ Page({
   data: {
     books: [],
     bookImage: '../images/book.png',
+    BackgroundImg: '../images/background0.jpg',
   },
 
   //检索书籍

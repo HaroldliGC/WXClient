@@ -1,0 +1,31 @@
+<!--pages/index/history.wxml-->
+<view class="historyPage">
+  <view class="headerBar">
+    <view class="navBar">
+      <navigator url='home' class="navItem" hover-class='navItem-hover'>书城</navigator>
+      <navigator url='manager' class="navItem" hover-class='navItem-hover'>在阅</navigator>
+      <view class="navItem" hover-class='navItem-hover'>历史</view>
+    </view>
+  </view>
+  <view class="orderArea">
+    <view class="Table">
+      <view class="Thead">订单列表</view>
+      <tbody class="Tbody">
+        <tr class="tableRow">
+          <td class="tableKey">订单号</td>
+          <td class="tableValue">书名</td>
+        </tr>
+        <view wx:for="{{Orders}}" wx:key="id">
+          <navigator url="operate?bookId={{item.Book.Id}}&orderId={{item.Id}}" class="tableRow">
+              <view class="tableKey">
+                {{item.Id}}
+              </view>
+              <view class="tableValue">
+                {{item.Book.Name}}
+              </view>
+          </navigator>
+        </view>
+      </tbody>
+    </view>
+  </view>
+</view>

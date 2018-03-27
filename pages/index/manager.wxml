@@ -3,7 +3,8 @@
   <view class="headerBar">
     <view class="navBar">
       <navigator url='home' class="navItem" hover-class='navItem-hover'>书城</navigator>
-      <navigator class="navItem" hover-class='navItem-hover'>书架</navigator>
+      <view class="navItem" hover-class='navItem-hover'>书架</view>
+      <navigator url='history' class="navItem" hover-class='navItem-hover'>历史</navigator>
     </view>
   </view>
   <view class="orders">
