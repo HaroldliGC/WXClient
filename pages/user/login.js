@@ -8,17 +8,22 @@ Page({
   },
   //登陆
   formSubmit: function(e) {
+    const data = {
+      'grant_type': 'password',
+      'username': e.detail.value.username,
+      'password': e.detail.value.password,
+    }
+    const formData = this.serializeObj(data);
     wx.request({
-      url: 'http://localhost:26800/api/ReaderUsers/GetReaderUserLogin/',
-      data: {
-        'userAccount': e.detail.value.username,
-        'userPassword': e.detail.value.password,
-      },
-      method: 'GET',
+      url: 'http://localhost:61021/token',
+      data: formData,
+      method: 'POST',
       header: {
-        'content-type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json',
+        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
       },
       success: function(res) {
+        console.log(res)
         if (res.statusCode === 200) {
           console.log(res)
           if (res.data.length !== 0) {
@@ -57,6 +62,14 @@ Page({
         }
       }
     })
+  },
+
+  serializeObj : function(obj) {
+    var result = [];
+    for (var property in obj) {
+      result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
+    }
+    return result.join("&");
   },
 
   /**
