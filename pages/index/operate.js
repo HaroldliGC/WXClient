@@ -1,5 +1,6 @@
-Page({
+import {HOST,serviceApi} from '../../utils/util.js';
 
+Page({
   /**
    * 页面的初始数据
    */
@@ -19,73 +20,82 @@ Page({
   //还书函数
   returnBook: function (e) {
     var that = this;
-    var nowDate = new Date();
-    wx.request({
-      url: 'http://localhost:26800/api/BusinessOrders/PutBusinessOrder/'+that.data.order.Id,
-      data: {
-        'Id': that.data.order.Id,
-        'BookId': that.data.order.BookId,
-        'ReaderUserId': that.data.order.ReaderUserId,
-        'StartDate': that.data.order.StartDate,
-        'EndDate': that.data.order.EndDate,
-        'ReturnDate': nowDate,
-        'BusinessState': that.data.order.BusinessState,
-        'OrderState': 'finished'
+    serviceApi(
+      `${HOST}api/Business/PutreturnBookByManager/${that.data.order.Id}`,
+      {
+        method:'PUT',
       },
-      method: "PUT",
-      header: {
-        'Content-Type': 'application/json',
-      },
-      success: function(res) {
-        console.log("还书结果：",res);
-        if (res.statusCode === 204) {
-          console.log("还书成功");
-          wx.redirectTo({
-            url: './manager',
-          }),
-          wx.showToast({
-            title: '图书归还成功',
-            icon: 'success',
-            duration: 2000
-          })
-        }
-      }
-    })
+      that.returnBookSuccess
+    );
   },
+
+  returnBookSuccess: function(res){
+    var that = this;
+    const data = res.data;
+    switch(data.type){
+      case 'failed':{
+        wx.showToast({
+          title: data.message,
+          icon: 'loading',
+          duration: 2000
+        })
+        break;
+      }
+      case 'success':{
+        wx.showToast({
+          title: data.message,
+          icon: 'success',
+          duration: 1000
+        })
+        that.setData({order:data.order});
+        setTimeout(function () {
+          wx.navigateBack({
+            delta: 1
+          })
+        },
+          1000
+        )
+        break;
+      }
+      default:
+    }
+  },
+
   //续借函数
   reBorrow: function(e) {
     var that = this;
-    wx.request({
-      url: 'http://localhost:26800/api/BusinessOrders/PutBusinessOrder/' + that.data.order.Id,
-      data: {
-        'Id': that.data.order.Id,
-        'BookId': that.data.order.BookId,
-        'ReaderUserId': that.data.order.ReaderUserId,
-        'StartDate': that.data.order.StartDate,
-        'EndDate': that.data.order.EndDate,
-        'ReturnDate': that.data.date,
-        'BusinessState': that.data.order.BusinessState,
-        'OrderState': that.data.order.OrderState,
+    serviceApi(
+      `${HOST}api/Business/PutrenewBook/${that.data.order.Id}`,
+      {
+        method: "PUT",
       },
-      method: "PUT",
-      header: {
-        'Content-Type': 'application/json',
-      },
-      success: function (res) {
-        console.log("续借结果：", res);
-        if (res.statusCode === 204) {
-          console.log("续借成功");
-          wx.redirectTo({
-            url: './manager',
-          }),
-          wx.showToast({
-            title: '图书续借成功',
-            icon: 'success',
-            duration: 2000
-          })
-        }
+      that.renewBookSuccess
+    )
+  },
+
+  renewBookSuccess: function(res){
+    var that = this;
+    const data = res.data;
+    switch (data.type) {
+      case 'failed': {
+        wx.showToast({
+          title: data.message,
+          icon: 'loading',
+          duration: 2000
+        })
+        break;
       }
-    })
+      case 'success': {
+        wx.showToast({
+          title: data.message,
+          icon: 'success',
+          duration: 1000
+        })
+        that.setData({ order: data.order });
+        break;
+      }
+      default:
+    }
   },
 
   /**
@@ -93,74 +103,27 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    console.log("options:", options)
-    wx.request({
-      url: 'http://localhost:26800/api/BusinessOrders/GetBusinessOrder/'+options.orderId,
-      method: 'GET',
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+    serviceApi(
+      `${HOST}api/Orders/GetOrder/`,
+      {
+        method: 'GET',
+        data: {'id': options.orderId}
       },
-      success: function(res) {
-        console.log("order:",res)
-        if (res.statusCode === 200) {
-          that.setData({order:res.data[0]});
-          that.setData({buttonState:(res.data[0].OrderState === 'finished')});
-          console.log("API调用成功")
-        }
-        else {
-          console.log("API调用失败")
-        }
-      }
-    })
+      that.getOrderSuccess
+    )
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  getOrderSuccess: function(res){
+    var that = this;
+    if (res.statusCode === 200) {
+      that.setData({ order: res.data });
+      that.setData({ buttonState: (res.data.State === 'done' || res.data.State === 'overdone') });
+      console.log("API调用成功")
+    }
+    else {
+      console.log("API调用失败")
+    }
   }
+
 })

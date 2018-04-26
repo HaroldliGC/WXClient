@@ -37,4 +37,7 @@
       </view>
     </view>
   </view>
+  <view class="buttonCtr">
+    <button class="myButton" bindtap='handleClick'>扫一扫</button>
+  </view>
 </view>

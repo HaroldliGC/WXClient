@@ -16,9 +16,6 @@
           结束日期：{{endDate}}
         </view>
         </picker>
-        <view class="inputItem">
-          借阅号：{{userAccount}}
-        </view>
       </view>
       <view class="PanelFoot">
         <button form-type='submit' class='myButton'>确认</button>

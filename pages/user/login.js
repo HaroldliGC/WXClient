@@ -1,4 +1,6 @@
 // pages/user/login.js
+import {getToken,setToken,serviceApi} from '../../utils/util.js';
+
 Page({
   //注册
   re_Register: function(e) {
@@ -8,10 +10,16 @@ Page({
   },
   //登陆
   formSubmit: function(e) {
+    var that = this;
+    let Token = '';
     const data = {
       'grant_type': 'password',
       'username': e.detail.value.username,
       'password': e.detail.value.password,
+    }
+    const userInf = {
+      'Account': e.detail.value.username,
+      'Password': e.detail.value.password,
     }
     const formData = this.serializeObj(data);
     wx.request({
@@ -23,42 +31,23 @@ Page({
         'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
       },
       success: function(res) {
-        console.log(res)
+        //console.log(res)
         if (res.statusCode === 200) {
-          console.log(res)
-          if (res.data.length !== 0) {
-            if (res.data[0].State !== 'stop'){
-              wx.setStorage({
-                key: 'userAccount',
-                data: res.data[0].AccountNumber,
-              })
-              wx.setStorage({
-                key: 'userPassword',
-                data: res.data[0].Password,
-              })
-              wx.setStorage({
-                key: 'userId',
-                data: res.data[0].Id,
-              })
-              wx.redirectTo({
-                url: '../index/home',
-              })
-            }
-            else{
-              wx.showToast({
-                title: '该账户已经被停用，请联系管理员恢复',
-                icon: 'loading',
-                duration: 2000,
-              })
-            }
-          }
-          else {
-            wx.showToast({
-              title: '用户名密码错误',
-              icon: 'loading',
-              duration: 2000,
-            })
-          }
+          console.log(res.data)
+          Token = res.data.access_token;
+          setToken(Token);
+          serviceApi('http://localhost:61021/api/Login/UserLogin',{
+            method:'POST',
+            data: userInf,
+          },
+          that.success
+          );
+        } else {
+          wx.showToast({
+            title: '用户名密码错误',
+            icon: 'loading',
+            duration: 2000,
+          })
         }
       }
     })
@@ -72,66 +61,37 @@ Page({
     return result.join("&");
   },
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  success : function(res) {
+    //console.log("rec:",res);
+    //console.log("recData:", res.data);
+    const data = res.data;
+    switch(data.type){
+      case 'failed':{
+        wx.showToast({
+          title: data.message,
+          icon: 'loading',
+          duration: 2000,
+        })
+        break;
+      }
+      case 'success':{
+        const userId = res.data.userId;
+        const userName = res.data.userName;
+        wx.setStorage({
+          key: 'userId',
+          data: userId,
+        })
+        wx.setStorage({
+          key: 'userName',
+          data: userName,
+        })
+        wx.redirectTo({
+          url: '../index/home',
+        })
+        break;
+      }
+      default:
+    }
   }
+
 })

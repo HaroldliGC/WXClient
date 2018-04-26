@@ -1,4 +1,5 @@
 // pages/index/add.js
+import {HOST, serviceApi} from '../../utils/util.js'
 Page({
 
   /**
@@ -9,7 +10,7 @@ Page({
     book: {},
     startDate: new Date().toDateString,
     endDate: new Date().toDateString,
-    userAccount: '',
+    userId: '',
   },
 
   bindStartDate: function(e) {
@@ -28,64 +29,34 @@ Page({
 
   formSubmit: function(e) {
     var that = this;
-    //查询书籍的剩余数量是否为0
-    wx.request({
-      url: 'http://localhost:26800/api/books/getbook/' + that.data.order.BookId,
-      method: 'GET',
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+    serviceApi(
+      `${HOST}api/Business/borrowBookByUser/`,
+      {
+        method: "POST",
+        data: {
+          'UserId' : wx.getStorageSync('userId'),
+          'BookId' : that.data.book.bookId,
+          'StartDate' : that.data.startDate,
+          'EndDate' : that.data.endDate
+        }
       },
-      success: function (res) {
-        console.log("res：", res);
-        if (res.statusCode == 200) {
-          console.log("resData:", res.data)
-          if (res.data.ResidueNumber > 0){ 
-            //书籍剩余数量大于0时，发送订单插入请求
-            wx.request({
-              url: 'http://localhost:26800/api/BusinessOrders/PostBusinessOrder/',
-              data: {
-                'Id': 0,
-                'BookId': that.data.order.BookId,
-                'ReaderUserId': that.data.order.ReaderUserId,
-                'StartDate': e.detail.value.startDate,
-                'EndDate': e.detail.value.endDate,
-                'ReturnDate': e.detail.value.startDate,
-                'BusinessState': 'normal',
-                'OrderState': 'unfinished'
-              },
-              method: 'POST',
-              header: {
-                'content-type': 'application/json'
-              },
-              success: function (res) {
-                console.log(res);
-                if (res.statusCode === 201) {
-                  console.log("借书API调用成功，数据已插入")
-                  wx.showToast({
-                    title: '图书借阅成功',
-                    icon: 'success',
-                    duration: 2000
-                  })
-                }
-                else {
-                  console.log("借书API调用失败。")
-                }
-              },
-            })
-          }
-          else{
-            wx.showToast({
-              title: '无库存',
-              icon: 'loading',
-              duration: 2000,
-            })
-          }
-        }
-        else {
-          console.log("请求失败：", res);
-        }
-      }
+      that.success
+    )
+  },
+
+  success: function(res){
+    const data = res.data;
+    wx.showToast({
+      title: data.message,
+      icon: 'loading',
+      duration: 2000,
     })
+    setTimeout(function(){
+      wx.navigateBack({
+        delta: 1
+      })},
+      2000
+    )
   },
   /**
    * 生命周期函数--监听页面加载
@@ -93,10 +64,8 @@ Page({
   onLoad: function (options) {
     var that = this;
     console.log("options:",options)
-    var initialOrder = { Id: 0, BookId: parseInt(options.bookId), ReaderUserId: wx.getStorageSync('userId'), StartDate: '', EndDate: '', ReturnDate: '', BusinessState: 'normal', OrderState:'unfinished'};
-    that.setData({ order: initialOrder});
     that.setData({ book: options});
-    that.setData({ userAccount: wx.getStorageSync('userAccount')});
+    that.setData({ userId: wx.getStorageSync('userId')});
   },
 
   /**

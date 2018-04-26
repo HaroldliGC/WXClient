@@ -1,0 +1,29 @@
+<!--pages/book/bookReviews.wxml-->
+<view class="bookReviewsPage">
+  <view class="bookInf">
+    <view class="bookImage">
+    </view>
+    <view class="bookInfList">
+      【{{book.bookName}}】<br/>
+      （{{book.bookIsbn}}）<br/>
+      <span class="bookAuthor">{{book.bookAuthor}}</span>
+    </view>
+  </view>
+  <view class="line">精彩评论
+  </view>
+  <view class="reviews">
+    <view class="reviewItem" wx:for="{{reviews}}" wx:key="id">
+      <view class="reviewItemTitle">{{item.UserName}}:{{item.Date}}</view>
+      <view class="reviewItemInf">{{item.Review}}</view>
+      <hr/>
+    </view>
+  </view>
+  <view class="myReview">
+    <form bindsubmit='formSubmit'>
+      <view class="formGroup">
+        <input name="review" class="formInput"></input>
+        <button form-type='submit' class="formButton">发送</button>
+      </view>
+    </form>
+  </view>
+</view>

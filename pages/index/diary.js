@@ -1,4 +1,6 @@
 // pages/index/diary.js
+import {HOST,serviceApi} from '../../utils/util.js'
+
 var resData = [];
 Page({
 
@@ -17,25 +19,28 @@ Page({
   onLoad: function (options) {
     console.log(options)
     var that = this;
-    wx.request({
-      url: 'http://localhost:26800/api/books/getbook/'+options.id,
-      method: 'GET',
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+    serviceApi(
+      `${HOST}api/Books/GetBookInf/`,
+      {
+        method:'GET',
+        data: { 'id': options.id}
       },
-      success: function (res) {
-        console.log("res：", res);
-        if (res.statusCode == 200) {
-          resData = res.data;
-          console.log("resData:", resData);
-          that.setData({ book: resData });
-        }
-        else {
-          console.log("请求失败：", res);
-        }
-      }
-    })
+      that.getBookSuccess
+    )
   },
+
+  getBookSuccess: function(res){
+    var that = this;
+    if (res.statusCode == 200) {
+      const resData = res.data;
+      console.log("resData:", resData);
+      that.setData({ book: resData });
+    }
+    else {
+      console.log("请求失败：", res);
+    }
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

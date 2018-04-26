@@ -3,7 +3,7 @@
   <view class="headerBar">
     <view class="navBar">
       <navigator url='home' class="navItem" hover-class='navItem-hover'>书城</navigator>
-      <view class="navItem" hover-class='navItem-hover'>书架</view>
+      <view class="navItem" hover-class='navItem-hover'>在阅</view>
       <navigator url='history' class="navItem" hover-class='navItem-hover'>历史</navigator>
     </view>
   </view>
@@ -16,10 +16,7 @@
             书名:{{item.Book.Name}}
           </view>
           <view class="infItem">
-            业务状态:{{item.BusinessState}}
-          </view>
-          <view class="infItem">
-            订单状态:{{item.OrderState}}
+            订单状态:{{item.State}}
           </view>
         </view>
       </navigator>

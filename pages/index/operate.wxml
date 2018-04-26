@@ -25,7 +25,7 @@
         </tr>
         <tr class="tableRow">
           <td class="tableKey">借阅人</td>
-          <td class="tableValue">{{order.ReaderUser.Name}}</td>
+          <td class="tableValue">{{order.User.Name}}</td>
         </tr>
         <tr class="tableRow">
           <td class="tableKey">借阅时间</td>
@@ -37,15 +37,7 @@
         </tr>
         <tr class="tableRow">
           <td class="tableKey">订单状态</td>
-          <td class="tableValue">{{order.OrderState}}</td>
-        </tr>
-        <tr class="tableRow">
-          <td class="tableKey">续借日期</td>
-          <picker name="date" mode="date" value='{{date}}' start="2018-03-01" end="2020-01-01" bindchange='bindDate' class="inputItem" class="tableValue" disabled='{{buttonState}}'>
-          <view class="picker">
-            {{date}}
-          </view>
-          </picker>
+          <td class="tableValue">{{order.State}}</td>
         </tr>
       </tbody>
       <view class="Tfoot">

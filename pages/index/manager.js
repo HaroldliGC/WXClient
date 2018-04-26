@@ -1,6 +1,7 @@
 // pages/index/manager.js
-Page({
+import {getToken, setToken, serviceApi} from '../../utils/util.js';
 
+Page({
   /**
    * 页面的初始数据
    */
@@ -14,25 +15,22 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    wx.request({
-      url: 'http://localhost:26800/api/BusinessOrders/GetGetBusinessOrderByAccount/',
-      data: {
-        'Account': wx.getStorageSync('userAccount'),
-        'OrderState': 'unfinished',
+    serviceApi(
+      'http://localhost:61021/api/Orders/GetUnreturnOrderByUserId/',
+      {
+        method: 'GET',
+        data: {'userId' :wx.getStorageSync('userId')}
       },
-      method: 'GET',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Accept' : 'application/json',
-      },
-      success: function(res) {
-        console.log("res:",res)
-        if (res.statusCode === 200){
-          that.setData({Orders:res.data});
-        }
+      that.success
+    );
 
-      }
-    })
+  },
+
+  success: function(res) {
+    var that = this;
+    if (res.statusCode === 200) {
+      that.setData({ Orders: res.data });
+    }
   },
 
   /**
@@ -42,45 +40,4 @@ Page({
     console.log("data:",this.data)
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

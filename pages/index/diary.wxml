@@ -3,14 +3,14 @@
   <view class="topArea">
     <view class="bookTopArea">
       <view class="bookImage">
-        <image class="Image" src="{{bookImage}}" mode='aspectFit'></image>
+        <image class="Image" src="{{book.ImageUrl}}" mode='aspectFit'></image>
       </view>
       <view class="bookManyInf">
         <view class="bookInfItem bookName">{{book.Name}}</view>
         <view class="bookInfItem">{{book.Author}}</view>
         <view class="bookInfItem">{{book.Type}}</view>
         <view class="bookInfItem">借出数量：{{book.BorrowNumber}}本</view>
-        <view class="bookInfItem">剩余数量：{{book.ResidueNumber}}本</view>
+        <view class="bookInfItem">总数量：{{book.Number}}本</view>
       </view>
     </view>
     <view class="bookBottomArea">
@@ -24,5 +24,6 @@
   </view>
   <view class="bottomArea">
   <navigator url='add?bookId={{book.Id}}&bookName={{book.Name}}' class="myButton">借阅</navigator>
+  <navigator url='../book/bookReviews?bookId={{book.Id}}&bookName={{book.Name}}&bookAuthor={{book.Author}}&bookIsbn={{book.Isbn}}' class="myButton">评论</navigator>
   </view>
 </view>

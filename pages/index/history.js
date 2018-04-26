@@ -1,4 +1,5 @@
 // pages/index/history.js
+import {HOST,serviceApi} from '../../utils/util.js';
 Page({
 
   /**
@@ -13,25 +14,21 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    wx.request({
-      url: 'http://localhost:26800/api/BusinessOrders/GetGetBusinessOrderByAccount/',
-      data: {
-        'Account': wx.getStorageSync('userAccount'),
-        'OrderState': 'finished',
+    serviceApi(
+      `${HOST}api/Orders/GetReturnOrderByUserId/`,
+      {
+        method: 'GET',
+        data: { 'userId': wx.getStorageSync('userId') }
       },
-      method: 'GET',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Accept': 'application/json',
-      },
-      success: function (res) {
-        console.log("res:", res)
-        if (res.statusCode === 200) {
-          that.setData({ Orders: res.data });
-        }
+      that.getOrderSuccess
+    );
+  },
 
-      }
-    })
+  getOrderSuccess: function(res){
+    var that = this;
+    if (res.statusCode === 200) {
+      that.setData({ Orders: res.data });
+    }
   },
 
   /**

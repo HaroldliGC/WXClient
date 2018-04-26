@@ -10,7 +10,8 @@
     "pages/index/history",
     "pages/user/index",
     "pages/user/login",
-    "pages/user/register"
+    "pages/user/register",
+    "pages/book/bookReviews"
   ],
   "window":{
     "backgroundTextStyle":"light",
