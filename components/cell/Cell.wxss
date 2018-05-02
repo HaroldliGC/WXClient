@@ -1,0 +1,35 @@
+/* components/cell/Cell.wxss */
+.weui_cell{
+  padding: 10px 15px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  height: 25px;
+  line-height: 25px;
+  background-color: #FFFFFF;
+}
+
+.weui_cell_bd{
+  flex: 1;
+}
+
+.weui_cell_ft{
+  text-align: right;
+  color: #808080;
+  font-size:14px;
+}
+
+.weui_cell:before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px solid #e5e5e5;
+    color: #e5e5e5;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+    left: 15px;
+    z-index: 2;
+  }

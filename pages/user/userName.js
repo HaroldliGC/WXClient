@@ -1,4 +1,4 @@
-// pages/user/userInf.js
+// pages/user/userName.js
 import { serviceApi, HOST } from '../../utils/util.js';
 Page({
 
@@ -33,7 +33,7 @@ Page({
       console.log("请求失败：", res);
     }
   },
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

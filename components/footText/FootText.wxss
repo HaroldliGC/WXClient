@@ -1,0 +1,10 @@
+/* components/footText/FootText.wxss */
+.weui_cells_tips{
+  margin-top: .3em;
+  color: #808080;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 14px;
+  height: 22px;
+  line-height: 22px;
+}

@@ -1,1 +1,21 @@
 /* pages/user/userInf.wxss */
+page{
+  height: 100%;
+}
+.userInfPage{
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.InfGroup{
+  display: flex;
+  flex-direction: column;
+}
+
+.blank{
+  width:100%;
+  height: 22px;
+  background-color:#f8f8f8;
+}

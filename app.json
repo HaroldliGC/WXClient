@@ -12,15 +12,16 @@
     "pages/user/login",
     "pages/user/register",
     "pages/book/bookReviews",
-    "pages/user/userInf"
+    "pages/user/userInf",
+    "pages/user/userName"
   ],
   "components": [
     "navigation/Navigation"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#5FBCDE",
+    "navigationBarBackgroundColor": "#353535",
     "navigationBarTitleText": "Begonia图书管理系统",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   }
 }

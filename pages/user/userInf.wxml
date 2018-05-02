@@ -1,2 +1,41 @@
-<!--pages/user/userInf.wxml-->
-<text>pages/user/userInf.wxml</text>
+<view class="userInfPage">
+  <view class="blank"></view>
+  <view class="InfGroup">
+    <navigator url="./userName?userId={{user.Id}}">
+    <Cell
+      title='昵称' 
+      content='{{user.Name}}'
+    >
+    </Cell>
+    </navigator>
+    <Cell
+      title='账户号' 
+      content='{{user.Account}}'
+    >
+    </Cell>
+    <Cell
+      title='手机号' 
+      content='{{user.Phone}}' 
+    >
+    </Cell>
+    <Cell
+      title='邮箱' 
+      content='{{user.Email}}'
+    >
+    </Cell>
+  </view>
+  <view class="blank"></view>
+  <view class="InfGroup">
+    <Cell
+      title='性别' 
+      content='{{user.Gender}}'
+    >
+    </Cell>
+    <Cell
+      title='证件号' 
+      content='{{user.License}}'
+    >
+    </Cell>
+  </view>
+</view>
+
