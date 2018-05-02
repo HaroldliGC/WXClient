@@ -3,7 +3,7 @@
   <view class="topArea">
     <view class="bookTopArea">
       <view class="bookImage">
-        <image class="Image" src="{{book.ImageUrl}}" mode='aspectFit'></image>
+        <image class="Image" src="{{bookImage}}" mode='aspectFit'></image>
       </view>
       <view class="bookManyInf">
         <view class="bookInfItem bookName">{{book.Name}}</view>

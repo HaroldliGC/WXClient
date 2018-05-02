@@ -1,5 +1,5 @@
 // pages/user/login.js
-import {getToken,setToken,serviceApi} from '../../utils/util.js';
+import {getToken,setToken,serviceApi,HOST} from '../../utils/util.js';
 
 Page({
   //注册
@@ -23,7 +23,7 @@ Page({
     }
     const formData = this.serializeObj(data);
     wx.request({
-      url: 'http://localhost:61021/token',
+      url: `${HOST}token`,
       data: formData,
       method: 'POST',
       header: {
@@ -36,7 +36,7 @@ Page({
           console.log(res.data)
           Token = res.data.access_token;
           setToken(Token);
-          serviceApi('http://localhost:61021/api/Login/UserLogin',{
+          serviceApi(`${HOST}api/Login/UserLogin`,{
             method:'POST',
             data: userInf,
           },

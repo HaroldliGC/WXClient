@@ -1,11 +1,7 @@
 <!--pages/index/history.wxml-->
 <view class="historyPage">
   <view class="headerBar">
-    <view class="navBar">
-      <navigator url='home' class="navItem" hover-class='navItem-hover'>书城</navigator>
-      <navigator url='manager' class="navItem" hover-class='navItem-hover'>在阅</navigator>
-      <view class="navItem" hover-class='navItem-hover'>历史</view>
-    </view>
+    <UserInf></UserInf>
   </view>
   <view class="orderArea">
     <view class="Table">
@@ -28,4 +24,5 @@
       </tbody>
     </view>
   </view>
+  <Navigation></Navigation>
 </view>

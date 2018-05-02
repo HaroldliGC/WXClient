@@ -56,6 +56,7 @@ Page({
     book:{},
     reviews:{},
     BackgroundImg: '../images/background1.png',
+    bookImage: '../images/bookPic.jpg',
   },
 
   /**

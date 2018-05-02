@@ -1,11 +1,7 @@
 <!--pages/index/manager.wxml-->
 <view class="managerPage">
   <view class="headerBar">
-    <view class="navBar">
-      <navigator url='home' class="navItem" hover-class='navItem-hover'>书城</navigator>
-      <view class="navItem" hover-class='navItem-hover'>在阅</view>
-      <navigator url='history' class="navItem" hover-class='navItem-hover'>历史</navigator>
-    </view>
+    <UserInf></UserInf>
   </view>
   <view class="orders">
     <view class="item" wx:for="{{Orders}}" wx:key="id">
@@ -18,8 +14,12 @@
           <view class="infItem">
             订单状态:{{item.State}}
           </view>
+          <view class="infItem">
+            书籍信息:{{item.Book.Info}}
+          </view>
         </view>
       </navigator>
     </view>
   </view>
+  <Navigation></Navigation>
 </view>

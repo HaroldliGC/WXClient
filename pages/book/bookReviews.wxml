@@ -2,6 +2,7 @@
 <view class="bookReviewsPage">
   <view class="bookInf">
     <view class="bookImage">
+      <image class="Image" src="{{bookImage}}" mode='aspectFit'></image>
     </view>
     <view class="bookInfList">
       【{{book.bookName}}】<br/>

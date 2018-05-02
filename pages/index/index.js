@@ -8,8 +8,8 @@ Page({
   onLoad: function () {
     setTimeout(function(){
       wx.redirectTo({
-        url: '../user/login',
-        //url: './home',
+        //url: '../user/login',
+        url: './home',
       })
     })
   }

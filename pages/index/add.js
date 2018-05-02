@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    bookImage: '../images/bookPic.jpg',
     order: {},
     book: {},
     startDate: new Date().toDateString,

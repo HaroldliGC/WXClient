@@ -1,0 +1,5 @@
+<view class="navBar">
+  <navigator url='home' class="navItem" hover-class='navItem-hover'>书城</navigator>
+  <navigator url='manager' class="navItem" hover-class='navItem-hover'>在阅</navigator>
+  <navigator url='history' class="navItem" hover-class='navItem-hover'>历史</navigator>
+</view>

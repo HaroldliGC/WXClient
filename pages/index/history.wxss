@@ -11,7 +11,7 @@ page {
 
 .headerBar {
   width: 100%;
-  height: 53px;
+  height: 50px;
 }
 
 .navBar {

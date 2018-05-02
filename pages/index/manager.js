@@ -1,5 +1,5 @@
 // pages/index/manager.js
-import {getToken, setToken, serviceApi} from '../../utils/util.js';
+import {getToken, HOST, setToken, serviceApi} from '../../utils/util.js';
 
 Page({
   /**
@@ -16,7 +16,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     serviceApi(
-      'http://localhost:61021/api/Orders/GetUnreturnOrderByUserId/',
+      `${HOST}api/Orders/GetUnreturnOrderByUserId/`,
       {
         method: 'GET',
         data: {'userId' :wx.getStorageSync('userId')}

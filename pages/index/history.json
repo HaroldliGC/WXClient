@@ -1,1 +1,6 @@
-{}
+{
+  "usingComponents": {
+    "Navigation": "../../components/navigation/Navigation",
+    "UserInf": "../../components/userInf/UserInf"
+  }
+}

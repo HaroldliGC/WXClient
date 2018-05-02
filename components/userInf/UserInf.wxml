@@ -1,0 +1,10 @@
+<view class="userInf">
+  <view class="user">
+    <button class="scanButton" bindtap='handleUserInf'></button>
+    <image class="Image" src="{{userImage}}" mode='aspectFit'></image>
+  </view>
+  <view class="search">
+    <button class="scanButton" bindtap='handleScan'></button>
+    <image class="Image" src="{{searchImage}}" mode='aspectFit'></image>
+  </view>
+</view>

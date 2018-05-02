@@ -12,7 +12,8 @@
 
 .bookImage{
   width:30%;
-  height: 100%;
+  height: 80%;
+  margin: auto;
 }
 
 .bookInfList {
@@ -94,4 +95,10 @@
   font-size:18px;
   color:white;
   text-align:center;
+}
+
+.Image {
+  width: 100%;
+  height: 80%;
+  flex-shrink: 0;
 }

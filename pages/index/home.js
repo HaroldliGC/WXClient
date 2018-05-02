@@ -66,7 +66,7 @@ Page({
     };
     //console.log(e.detail.value.bookname)
     serviceApi(
-      "http://localhost:61021/api/Books/getbookbysearch/",
+      `${HOST}api/Books/getbookbysearch/`,
       {
         method:'GET',
         data: data,
@@ -93,7 +93,7 @@ Page({
   onLoad: function(options) {
     var that = this;
     serviceApi(
-      "http://localhost:61021/api/Books/GetBooks",
+      `${HOST}api/Books/GetBooks`,
       {method:'GET'},
       that.getSuccess
     );

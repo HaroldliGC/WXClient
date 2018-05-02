@@ -1,11 +1,7 @@
 <!--pages/index/home.wxml-->
 <view class="homePage" style="background-image: url({{BackgroundImg}})">
   <view class="headerBar">
-    <view class="navBar">
-      <view class="navItem" hover-class='navItem-hover'>书城</view>
-      <navigator url='manager' class="navItem" hover-class='navItem-hover'>在阅</navigator>
-      <navigator url='history' class="navItem" hover-class='navItem-hover'>历史</navigator>
-    </view>
+    <UserInf></UserInf>
   </view>
   <view class="topArea">
     <form class="searchArea" bindsubmit="search">
@@ -37,7 +33,10 @@
       </view>
     </view>
   </view>
+  <!--
   <view class="buttonCtr">
     <button class="myButton" bindtap='handleClick'>扫一扫</button>
   </view>
+  -->
+  <Navigation></Navigation>
 </view>
