@@ -8,7 +8,7 @@
           <input name="useremail" class="fieldInput" type="email" placeholder='邮箱'></input>
         </div>
         <div class="inputContainer">
-          <input name="license" class="fieldInput" type="text" placeholder='身份证号'></input>
+          <input name="license" class="fieldInput" type="idcard" placeholder='身份证号'></input>
         </div>
         <div class="inputContainer">
           <input name="password" class="fieldInput" type="password" placeholder='密码'></input>

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "FootText": "../../components/footText/FootText"
+    "FootText": "../../components/footText/FootText",
+    "MyButton": "../../components/button/Button"
   }
 }

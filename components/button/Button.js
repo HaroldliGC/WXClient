@@ -1,20 +1,24 @@
-// navigation/Navigation.js
+// components/button/Button.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    content: {
+      type: String,
+      value: 'Button'
+    },
+    inputType: {
+      type: String,
+      value: 'button'
+    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    iconUrl1:'../../images/books.png',
-    iconUrl2:'../../images/book.png',
-    iconUrl3:'../../images/history.png',
-    iconUrl4: '../../images/user.png',
+
   },
 
   /**

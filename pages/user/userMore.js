@@ -1,34 +1,26 @@
-// pages/user/userName.js
+// pages/user/userMore.js
 import { serviceApi, HOST } from '../../utils/util.js';
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    user: {}
-  },
-
-  formSubmit: function(e){
+  formSubmit: function (e) {
     //console.log("userName", e.detail.value.userName)
     var that = this;
-    const userName = {Name:e.detail.value.userName};
-    const userInf = {...that.data.user,...userName};
+    const userPhone = { Phone: e.detail.value.phone };
+    const userInf = { ...that.data.user, ...userPhone };
     //console.log("userInf",userInf)
     serviceApi(
       `${HOST}api/Users/PutUserInf/${wx.getStorageSync('userId')}`,
       {
-        method:'PUT',
-        data:userInf
+        method: 'PUT',
+        data: userInf
       },
       that.changeInfSuccess
     )
   },
 
-  changeInfSuccess: function(res){
-    if (res.statusCode == 200){
+  changeInfSuccess: function (res) {
+    if (res.statusCode == 200) {
       const data = res.data;
-      if (data === "success"){
+      if (data === "success") {
         wx.showToast({
           title: '保存成功',
           icon: 'success',
@@ -51,6 +43,26 @@ Page({
     } else {
       console.log("请求失败：", res);
     }
+  },
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    user:{}
+  },
+
+  switchChange: function(e){
+    var that = this;
+    let gender = {};
+    //console.log('switch1 发生 change 事件，携带值为', e.detail.value)
+    if (e.detail.value === true){
+      gender.Gender = 'man';
+    } else {
+      gender.Gender = 'woman';
+    }
+    const newUser = { ...this.data.user, ...gender };
+    that.setData({ user: newUser });
   },
   /**
    * 生命周期函数--监听页面加载
@@ -76,7 +88,7 @@ Page({
       console.log("请求失败：", res);
     }
   },
-  
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,0 +1,10 @@
+<!--components/badge/Badge.wxml-->
+<view class="weui_cell">
+  <view class="weui_cell_hd">
+    <image class="Image" src='{{imageUrl}}'></image>
+  </view>
+  <view class="weui_cell_bd">
+    <view>{{title}}</view>
+    <view style="font-size: 13px;color: #888888;">{{content}}</view>
+  </view>
+</view>

@@ -13,7 +13,8 @@
     "pages/user/register",
     "pages/book/bookReviews",
     "pages/user/userInf",
-    "pages/user/userName"
+    "pages/user/userName",
+    "pages/user/userMore"
   ],
   "components": [
     "navigation/Navigation"

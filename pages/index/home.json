@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "Navigation": "../../components/navigation/Navigation",
-    "UserInf": "../../components/userInf/UserInf"
+    "UserInf": "../../components/userInf/UserInf",
+    "myBadge": "../../components/badge/Badge"
   }
 }

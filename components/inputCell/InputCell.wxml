@@ -1,0 +1,9 @@
+<!--components/inputCell/InputCell.wxml-->
+<view class="weui_cell">
+  <view class="weui_cell_hd">
+    <label class="weui_label">{{title}}</label>
+  </view>
+  <view class="weui_cell_bd">
+    <input class="weui_input" type="{{inputType}}" value='{{inputValue}}' placeholder='{{placeholder}}'></input>
+  </view>
+</view>

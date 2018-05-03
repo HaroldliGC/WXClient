@@ -1,0 +1,6 @@
+<button 
+  class="weui_btn weui_btn_plain_primary"
+  form-type="{{inputType}}"
+>
+  {{content}}
+</button>

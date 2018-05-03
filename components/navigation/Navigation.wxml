@@ -1,5 +1,33 @@
+<!--
 <view class="navBar">
   <navigator url='home' class="navItem" hover-class='navItem-hover'>书城</navigator>
   <navigator url='manager' class="navItem" hover-class='navItem-hover'>在阅</navigator>
   <navigator url='history' class="navItem" hover-class='navItem-hover'>历史</navigator>
+</view>
+-->
+<view class="weui_tabbar">
+  <navigator url='home' class="weui_tabbar_item" hover-class='navItem-hover'>
+    <view style="display: inline-block;position: relative;">
+      <image src='{{iconUrl1}}' class="weui_tabbar_icon"></image>
+    </view>
+    <view class="weui_tabbar_label">书城</view>
+  </navigator>
+  <navigator url='manager' class="weui_tabbar_item" hover-class='navItem-hover'>
+    <view style="display: inline-block;position: relative;">
+      <image src='{{iconUrl2}}' class="weui_tabbar_icon"></image>
+    </view>
+    <view class="weui_tabbar_label">在阅</view>
+  </navigator>
+  <navigator url='history' class="weui_tabbar_item" hover-class='navItem-hover'>
+    <view style="display: inline-block;position: relative;">
+    <image src='{{iconUrl3}}' class="weui_tabbar_icon"></image>
+    </view>
+    <view class="weui_tabbar_label">历史</view>
+  </navigator>
+  <navigator url='../user/userInf' class="weui_tabbar_item" hover-class='navItem-hover'>
+    <view style="display: inline-block;position: relative;">
+    <image src='{{iconUrl4}}' class="weui_tabbar_icon"></image>
+    </view>
+    <view class="weui_tabbar_label">用户</view>
+  </navigator>
 </view>

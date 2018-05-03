@@ -1,17 +1,78 @@
-/* pages/user/userName.wxss */
-.nameInput{
-  margin-top: 10px;
-  border-bottom: 1px  solid #09BB07;
-  color: #000000;
-  padding-left: 10px;
+/* pages/user/userMore.wxss */
+page{
+  height: 100%;
 }
 
-.nameContainer{
-  padding:15px 15px 0px 15px;
+.userMorePage{
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+  box-sizing: border-box;
 }
 
-.footContainer{
-  padding-left: 10px;
+.blank{
+  width:100%;
+  height: 22px;
+  background-color:#f8f8f8;
+}
+
+.weui_cell{
+    padding: 10px 15px;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    line-height: 1.47058824;
+    font-size: 17px;
+    background-color: #FFFFFF;
+}
+
+.weui_cell::before{
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px solid #e5e5e5;
+    color: #e5e5e5;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    left: 15px;
+    z-index: 2;
+}
+
+.weui_cell_bd{
+    flex: 1;
+}
+
+.weui_input{
+  width: 100%;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: none;
+  background-color: transparent;
+  font-size: inherit;
+  color: inherit;
+  height: 1.47058824em;
+  line-height: 1.47058824;
+}
+
+.weui_label{
+    display: block;
+    width: 105px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.weui_cell_ft{
+  text-align: right;
+  color: #808080;
+  font-size:14px;
 }
 
 .buttonContainer{

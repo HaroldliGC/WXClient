@@ -1,8 +1,9 @@
 <!--pages/index/home.wxml-->
-<view class="homePage" style="background-image: url({{BackgroundImg}})">
+<view class="homePage">
   <view class="headerBar">
     <UserInf></UserInf>
   </view>
+    <!--
   <view class="topArea">
     <form class="searchArea" bindsubmit="search">
       <view class="search">
@@ -33,10 +34,20 @@
       </view>
     </view>
   </view>
-  <!--
   <view class="buttonCtr">
     <button class="myButton" bindtap='handleClick'>扫一扫</button>
   </view>
   -->
+  <view class="topArea">
+    <view wx:for="{{books}}" wx:key="id">
+        <navigator url="diary?id={{item.Id}}" hover-class="navigator-hover">
+          <myBadge
+            title = '{{item.Name}}'
+            content = '{{item.Author}}'
+          >
+          </myBadge>
+        </navigator>
+      </view>
+  </view>
   <Navigation></Navigation>
 </view>
