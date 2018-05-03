@@ -1,8 +1,5 @@
 <!--pages/index/manager.wxml-->
 <view class="managerPage">
-  <view class="headerBar">
-    <UserInf></UserInf>
-  </view>
   <view class="orders">
     <view class="item" wx:for="{{Orders}}" wx:key="id">
       <navigator url="operate?bookId={{item.Book.Id}}&orderId={{item.Id}}" class="Navitem">

@@ -12,8 +12,7 @@ Component({
    */
   data: {
     iconUrl1:'../../images/books.png',
-    iconUrl2:'../../images/book.png',
-    iconUrl3:'../../images/history.png',
+    iconUrl2:'../../images/compass.png',
     iconUrl4: '../../images/user.png',
   },
 

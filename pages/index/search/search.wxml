@@ -1,0 +1,31 @@
+<!--pages/index/search/search.wxml-->
+<view class="searchPage">
+  <form bindsubmit='formSubmit' bindreset="formReset">
+    <view class="searchArea">
+      <view class="weui_search_bar">
+        <input class="weui_search_bar_input"
+          placeholder='搜索'
+          type='text'
+          name='bookname'
+        >
+        </input>
+      </view>
+    </view>
+    <view class="buttonContainer">
+        <button form-type='submit' class="weui_btn weui_btn_plain_primary">
+          确认
+        </button>
+    </view>
+  </form>
+  <view class='contentArea'>
+    <view wx:for="{{books}}" wx:key="id">
+        <navigator url="../diary?id={{item.Id}}" hover-class="navigator-hover">
+          <myBadge
+            title = '{{item.Name}}'
+            content = '{{item.Author}}'
+          >
+          </myBadge>
+        </navigator>
+    </view>
+  </view>
+</view>

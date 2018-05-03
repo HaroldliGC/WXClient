@@ -1,43 +1,5 @@
 <!--pages/index/home.wxml-->
 <view class="homePage">
-  <view class="headerBar">
-    <UserInf></UserInf>
-  </view>
-    <!--
-  <view class="topArea">
-    <form class="searchArea" bindsubmit="search">
-      <view class="search">
-        <input 
-          class="searchInputMain"
-          type="text" 
-          placeholder='书名'
-          name='bookname'
-        ></input>
-        <view>
-            <button
-              form-type='submit' 
-              class="searchButton"
-            >检索</button>
-        </view>
-      </view>
-    </form>
-    <view class="bookPanel">
-      <view class="list" wx:for="{{books}}" wx:key="id">
-        <navigator url="diary?id={{item.Id}}" hover-class="navigator-hover" class="linkItem">
-          <view class="icon">
-            <image src="{{bookImage}}" class="image"></image>
-          </view>
-          <view class="bookItem">
-            {{item.Name}}
-          </view>
-        </navigator>
-      </view>
-    </view>
-  </view>
-  <view class="buttonCtr">
-    <button class="myButton" bindtap='handleClick'>扫一扫</button>
-  </view>
-  -->
   <view class="topArea">
     <view wx:for="{{books}}" wx:key="id">
         <navigator url="diary?id={{item.Id}}" hover-class="navigator-hover">
@@ -47,7 +9,7 @@
           >
           </myBadge>
         </navigator>
-      </view>
+    </view>
   </view>
   <Navigation></Navigation>
 </view>

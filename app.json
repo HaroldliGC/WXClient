@@ -14,7 +14,10 @@
     "pages/book/bookReviews",
     "pages/user/userInf",
     "pages/user/userName",
-    "pages/user/userMore"
+    "pages/user/userMore",
+    "pages/index/user",
+    "pages/index/find",
+    "pages/index/search/search"
   ],
   "components": [
     "navigation/Navigation"

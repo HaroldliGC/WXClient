@@ -1,0 +1,37 @@
+<!--pages/index/user.wxml-->
+<view class="userPage">
+  <view class="contentArea">
+    <view class="blank"></view>
+    <navigator url='../user/userInf'>
+      <myBadge
+        title = '{{user.Name}}'
+        content = '账号:{{user.Account}}'
+        imageUrl = '{{defaultUser}}'
+      >
+      </myBadge>
+    </navigator>
+    <view class="blank"></view>
+    <navigator url='manager'>
+      <view class="weui_cell">
+        <view class="weui_cell_hd">
+          <image class="Image" src='{{reading}}'></image>
+        </view>
+        <view class="weui_cell_bd">
+          <view>在阅</view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url='history'>
+      <view class="weui_cell">
+        <view class="weui_cell_hd">
+          <image class="Image" src='{{readed}}'></image>
+        </view>
+        <view class="weui_cell_bd">
+          <view>历史</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <Navigation>
+  </Navigation>
+</view>

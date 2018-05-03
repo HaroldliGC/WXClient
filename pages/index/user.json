@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Navigation": "../../components/navigation/Navigation",
+    "myBadge": "../../components/badge/Badge"
+  }
+}

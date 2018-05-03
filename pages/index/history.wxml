@@ -1,8 +1,5 @@
 <!--pages/index/history.wxml-->
 <view class="historyPage">
-  <view class="headerBar">
-    <UserInf></UserInf>
-  </view>
   <view class="orderArea">
     <view class="Table">
       <view class="Thead">订单列表</view>

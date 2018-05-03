@@ -1,0 +1,29 @@
+<!--pages/index/find.wxml-->
+<view class="findPage">
+  <view class='contentArea'>
+    <view class="blank"></view>
+    <navigator url='./search/search'>
+      <view class="weui_cell">
+        <view class="weui_cell_hd">
+          <image class="Image" src='{{search}}'></image>
+        </view>
+        <view class="weui_cell_bd">
+          <view>搜一搜</view>
+        </view>
+      </view>
+    </navigator>
+    <view>
+      <button class="scanButton" bindtap='handleScan'></button>
+      <view class="weui_cell">
+        <view class="weui_cell_hd">
+          <image class="Image" src='{{scan}}'></image>
+        </view>
+        <view class="weui_cell_bd">
+          <view>扫一扫</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <Navigation>
+  </Navigation>
+</view>

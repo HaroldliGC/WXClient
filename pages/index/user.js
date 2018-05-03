@@ -1,17 +1,40 @@
-// pages/user/index.js
+// pages/index/user.js
+import { serviceApi, HOST } from '../../utils/util.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    reading: '../../images/reading.png',
+    readed: '../../images/readed.png',
+    defaultUser: '../../images/defaultUser.jpg',
+    user: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    const userId = wx.getStorageSync('userId');
+    serviceApi(
+      `${HOST}api/Users/GetUser/${userId}`,
+      { method: 'GET' },
+      that.getSuccess
+    );
+  },
+
+  getSuccess: function (res) {
+    var that = this;
+    if (res.statusCode == 200) {
+      const resData = res.data;
+      console.log("resData:", resData);
+      that.setData({ user: resData });
+    }
+    else {
+      console.log("请求失败：", res);
+    }
   },
 
   /**

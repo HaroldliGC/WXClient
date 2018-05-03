@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "myBadge": "../../../components/badge/Badge"
+  }
+}
