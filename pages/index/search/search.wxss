@@ -82,6 +82,7 @@ page{
   width: 100%;
   height: calc(100% - 137px);
   box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .weui_btn{

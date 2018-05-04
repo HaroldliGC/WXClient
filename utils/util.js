@@ -48,7 +48,8 @@ export const serviceApi = (url, options = {}, success) => {
   })
 }
 
-const HOST = "http://localhost:61021/";
+//const HOST = "http://localhost:61021/";
+const HOST = "http://47.106.102.54/";
 
 module.exports = {
   formatTime: formatTime,
